@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: docker-k8s-demo-deployment
+   labels:
+      app: k8s-docker-kube-demo
+spec:
+   replicas: 1
+   selector:
+      matchLabels: 
+         app: k8s-docker-kube-demo
+   template:
+      metadata:
+         labels:
+            app: k8s-docker-kube-demo
+      spec:
+         containers:
+         - name: k8s-docker-kube-demo
+           image: rishi29/docker-kube-demo
+           ports:
+           - containerPort: 8080 
+   
+  
+   
